@@ -1,0 +1,125 @@
+
+{| class="wikitable"
+|-
+! Created 
+| 2013.01.09
+|-
+! Author 
+| Marco San Andres (chitetskoy@gmail.com, [http://en.wikipedia.org/wiki/User:Chitetskoy Wikipedia user:Chitetskoy])
+|}
+
+== License ==
+The MIT License (MIT)
+
+Copyright (c) 2014 Marco San Andres (chitetskoy@gmail.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+== Introduction ==
+
+Baybayin Converter enables the conversion from Latin Text to its equivalent Baybayin characters. Baybayin (often incorrectly called Alibata) is the ancient script used in the Philippines, particularly in Luzon regions, before the Spanish colonization.
+
+Currently, the rendition of Baybayin is by its Unicode characters (Tagalog coderange, U+1700–U+171F). This also uses free embeddable fonts from Paul Morrow ([http://www.mts.net/~pmorrow/fonts.htm link here]).
+
+== Installation == 
+Extract the content to <code>extensions</code> folder of your MediaWiki installation.
+
+Then add the following line in your <code>LocalSettings.php</code>:
+
+<pre>
+require_once( "$IP/extensions/Baybayin/Baybayin.php" );
+</pre>
+
+== Usage ==
+
+<pre>
+&lt;baybayin&gt; latin text &lt;/baybayin&gt;
+</pre>
+
+Output:
+
+<pre>
+baybayin text
+</pre>
+
+=== Attributes ===
+
+{| width = "100%" class = "wikitable"
+|-
+! width = "100" | Name 
+! width = "*" | Description
+|-
+! <code>prespanish</code> 
+| Triggers Pre-spanish mode. Pre-spanish mode uses no virama (vowel cancelling mark), and any consonants without any assisted vowels are simply dropped. '''Defaults to false'''
+|}
+
+== Examples ==
+
+'''Text to be rendered''' (in Tagalog):
+
+<blockquote>
+Ito ay isang pagsusubok nang baybayin na ginawa ni marko dyonatan rosi para sa wikipediya. naway maging pakina-pakinabang ito.
+</blockquote>
+
+'''Note that the Latin text must be written as it was pronounced, not written as what it should be spelled.'''
+
+'''Tagalog Modern Orthography:'''
+
+<blockquote>
+Ito ay isang pagsusubok ng Baybayin na ginawa ni Marco Jonathan Rossi para sa Wikipedia. Nawa'y maging pakina-pakinabang ito.
+</blockquote>
+
+'''English Translation:'''
+
+<blockquote>
+This is a test of Baybayin that is created by Marco Jonathan Rossi for Wikipedia. May this become useful.
+</blockquote>
+
+=== Pre-spanish mode ===
+In the original form of the Baybayin script, a stand-alone consonant (consonants not directly followed by a vowel sound) cannot be indicated unambiguously; therefore, such consonants were simply not written, and the reader would fill in the missing consonants through context. For example, the letters n and k in a word like bundók (mountain) were omitted, so that it was spelled bu-do.
+
+<pre>
+<baybayin prespanish>
+ito ay isang pagsusubok nang baybayin na ginawa ni marko dyonatan rosi para sa wikipediya. naway maging pakina-pakinabang ito.
+</baybayin>
+</pre>
+
+'''Output:'''
+(you need to have a Baybayin-supported Unicode font fo view the texts)
+
+ᜁᜆᜓ ᜀ ᜁᜐ ᜉᜐᜓᜐᜓᜊᜓ ᜈ ᜊᜊᜌᜒ ᜈ ᜄᜒᜈᜏ ᜈᜒ ᜋᜃᜓ ᜌᜓᜈᜆ ᜍᜓᜐᜒ ᜉᜍ ᜐ ᜏᜒᜃᜒᜉᜒᜇᜒᜌ. ᜈᜏ ᜋᜄᜒ ᜉᜃᜒᜈ-ᜉᜃᜒᜈᜊ ᜁᜆᜓ.
+
+=== Spanish Modification mode (default)===
+The original writing method was particularly difficult for the Spanish priests who were translating books into the vernaculars. Because of this, Francisco López introduced his own kudlit in 1620 that cancelled the implicit a vowel sound. The kudlit was in the form of a "+" sign, in reference to Christianity. This cross-shaped kudlit functions exactly the same as the virama in the Devanagari script of India. In fact, Unicode calls this kudlit the Tagalog Sign Virama. See sample above in Characteristics Section.
+
+<pre>
+<baybayin>
+ito ay isang pagsusubok nang baybayin na ginawa ni marko dyonatan rosi para sa wikipediya. naway maging pakina-pakinabang ito.
+</baybayin>
+</pre>
+
+ᜁᜆᜓ ᜀᜌ᜔ ᜁᜐᜅ᜔ ᜉᜄ᜔ᜐᜓᜐᜓᜊᜓᜃ᜔ ᜈᜅ᜔ ᜊᜌ᜔ᜊᜌᜒᜈ᜔ ᜈ ᜄᜒᜈᜏ ᜈᜒ ᜋᜍ᜔ᜃᜓ ᜇ᜔ᜌᜓᜈᜆᜈ᜔ ᜍᜓᜐᜒ ᜉᜍ ᜐ ᜏᜒᜃᜒᜉᜒᜇᜒᜌ. ᜈᜏᜌ᜔ ᜋᜄᜒᜅ᜔ ᜉᜃᜒᜈ-ᜉᜃᜒᜈᜊᜅ᜔ ᜁᜆᜓ.
+
+=== Other notes ===
+If you have any questions, or encountered bugs, please feel free to contact me!
+
+=== Resources ===
+
+* Some texts are obtained from [http://en.wikipedia.org/wiki/Baybayin Baybayin English Wikipedia article, released under CC-BY-SA.]
+* [http://www.mts.net/~pmorrow/fonts.htm Paul Morrow's Free Baybayin fonts], converted to web-embeddable formats.

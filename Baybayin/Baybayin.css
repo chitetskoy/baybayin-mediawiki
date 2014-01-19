@@ -1,0 +1,30 @@
+/**
+ * Baybayin Loader
+ */
+ 
+/**
+ * Font declaration
+ */
+@font-face {  
+	font-family: "TNBaybayinFont1";  
+	src: url( extensions/Baybayin/fonts/tagstyle-orig-webfont.eot ); /* IE */  
+	src: url( extensions/Baybayin/fonts/tagstyle-orig-webfont.ttf ) format("TrueType");
+	src: local("Tagalog Stylized"), url( extensions/Baybayin/fonts/tagstyle-orig-webfont.woff ) format("woff"); /* non-IE */  
+}
+
+@font-face {  
+	font-family: "TNBaybayinFont2";  
+	src: url( extensions/Baybayin/fonts/baybayin_umon-webfont.eot ); /* IE */  
+	src: url( extensions/Baybayin/fonts/baybayin_umon-webfont.ttf ) format("TrueType");
+	src: local("Tagalog Stylized"), url( extensions/Baybayin/fonts/baybayin_umon-webfont.woff ) format("woff"); /* non-IE */  
+}
+
+
+/**
+ *
+ */
+.tn-baybayin-render {
+	font-family : "TNBaybayinFont1";
+	font-size : 150%;
+	line-height : 1.5;
+}
